@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="100dp"
+    android:orientation="vertical"
+    android:background="#F4E7E7">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/readbook1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="22dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reading book"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#4DAF0F"/>
+
+        <TextView
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="Reading is More Fun"
+            android:textColor="#261473"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your project management so that the  results are maximized"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:textColor="#333"
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:id="@+id/btnToLogin"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="Get Started"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingHorizontal="40dp"
+            android:backgroundTint="#0BA10B"
+            app:cornerRadius="25dp"
+            android:layout_marginTop="50dp"/>
+    </LinearLayout>
+</LinearLayout>

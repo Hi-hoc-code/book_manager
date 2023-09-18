@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".log_in_out.SignupActivity"
+    android:orientation="vertical"
+    android:paddingHorizontal="50dp"
+    android:paddingVertical="60dp">
+    <ImageView
+        android:layout_width="290dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/signup_img"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Đăng kí"
+        android:textColor="#ff00"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập thông tin của bạn để đăng kí"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_marginTop="12dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/email"
+            android:layout_gravity="center"/>
+        <EditText
+            android:id="@+id/edtEmailSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email*"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pass"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"/>
+        <EditText
+            android:id="@+id/edtPassSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Mật khẩu*"
+            android:layout_weight="10"
+            android:inputType="textPassword"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hide"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+        <View
+            android:layout_width="24dp"
+            android:layout_height="0dp"/>
+        <EditText
+            android:id="@+id/edtRePassSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Nhập lại mật khẩu*"
+            android:layout_weight="10"
+            android:inputType="textPassword"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hide"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/name"
+            android:layout_gravity="center"/>
+        <EditText
+            android:id="@+id/edtTenSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Họ và tên*"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ff00"
+        android:text="Đăng kí"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        android:layout_marginTop="32dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="Đã có tài khoản?  "
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"/>
+        <TextView
+            android:id="@+id/btnToLoginFromSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="Đăng nhập"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#ff00"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
+</LinearLayout>

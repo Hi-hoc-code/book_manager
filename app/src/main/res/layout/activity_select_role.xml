@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectRoleActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT YOUR ROLE"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/btnManager"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#D13B3B"
+        android:text="Quản lí"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/btnStaff"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#62B11C"
+        android:text="Nhân viên"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
+    <Button
+        android:id="@+id/btnUser"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#27A6AA"
+        android:text="Khách hàng"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
+</LinearLayout>
