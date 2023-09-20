@@ -9,33 +9,41 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.readingbook.R;
 import com.example.readingbook.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.UUID;
 
 public class SignupActivity extends AppCompatActivity {
     EditText edtEmail, edtPass, edtRePass, edtUserName;
     Button btnRegister;
     FirebaseAuth mAth;
-    DatabaseReference userRef;
+    FirebaseFirestore dataBase;
+    TextView btnToLoginFromSignUp;
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        if(currentUser != null){
+//            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,14 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        btnToLoginFromSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,14 +88,22 @@ public class SignupActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Registration success
                                     Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                    // Add thông tin vào firebase
 
-                                    // Save additional user information to the database
-                                    String userId = mAth.getCurrentUser().getUid();
-                                    DatabaseReference currentUserRef = userRef.child(userId);
-
-                                    // Create a User object and set its values
-                                    User user = new User(username, email, pass);
-                                    currentUserRef.setValue(user);
+                                    String id= UUID.randomUUID().toString();
+                                    User user = new User(id, username,email,pass);
+                                    HashMap<String,Object> mapUser = user.convertHashMap();
+                                    dataBase.collection("user").document(id).set(mapUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
 
                                     // Navigate to LoginActivity
                                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
@@ -102,6 +126,7 @@ public class SignupActivity extends AppCompatActivity {
         edtRePass = findViewById(R.id.edtRePassSignUp);
         edtUserName = findViewById(R.id.edtTenSignUp);
         btnRegister = findViewById(R.id.btnRegister);
-        userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        dataBase = FirebaseFirestore.getInstance();
+        btnToLoginFromSignUp = findViewById(R.id.btnToLoginFromSignUp);
     }
 }

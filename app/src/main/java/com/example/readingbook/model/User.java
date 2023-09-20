@@ -2,13 +2,16 @@ package com.example.readingbook.model;
 
 import android.content.Intent;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 public class User {
-    private Integer id;
+    private String id;
     private String userName;
     private String email;
     private String pass;
 
-    public User(Integer id, String userName, String email, String pass) {
+    public User(String id, String userName, String email, String pass) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -24,11 +27,11 @@ public class User {
     public User() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,5 +57,13 @@ public class User {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+    public HashMap<String, Object> convertHashMap(){
+        HashMap<String, Object> work = new HashMap<>();
+        work.put("id", id);
+        work.put("username", userName);
+        work.put("email", email);
+        work.put("pass", pass);
+        return  work;
     }
 }
