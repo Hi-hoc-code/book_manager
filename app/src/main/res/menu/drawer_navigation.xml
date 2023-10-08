@@ -3,56 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single"
-        android:itemBackground="?android:attr/listDivider">
-
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/staff_manager"
-            android:title="Staff Manager" />
+            android:title="Staff Manager"
+            android:layout_marginTop="4dp" />
 
         <item
             android:id="@+id/customer_manager"
-            android:title="Customer Manager" />
-
+            android:title="Customer Manager"
+            android:layout_marginTop="4dp" />
     </group>
 
-    <group android:checkableBehavior="single"
-        android:itemBackground="?android:attr/listDivider">
-
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/kind_book_manager"
-            android:title="Kind of book" />
+            android:title="Kind of book"
+            android:layout_marginTop="4dp" />
 
         <item
             android:id="@+id/book_manager"
-            android:title="Book Manager" />
+            android:title="Book Manager"
+            android:layout_marginTop="4dp" />
 
         <item
             android:id="@+id/phieu_muon_manager"
-            android:title="Loan Slip Manager" />
-
+            android:title="Loan Slip Manager"
+            android:layout_marginTop="4dp" />
     </group>
 
-    <group android:checkableBehavior="single"
-        android:itemBackground="?android:attr/listDivider">
-
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/statistical_manager"
-            android:title="Statistical Manager" />
-
+            android:title="Statistical Manager"
+            android:layout_marginTop="4dp" />
     </group>
 
-    <group android:checkableBehavior="single"
-        android:itemBackground="?android:attr/listDivider">
-
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/setting"
-            android:title="Setting" />
+            android:title="Setting"
+            android:layout_marginTop="4dp" />
 
         <item
             android:id="@+id/logout"
-            android:title="Logout" />
-
+            android:title="Logout"
+            android:layout_marginTop="4dp" />
     </group>
 
 </menu>
