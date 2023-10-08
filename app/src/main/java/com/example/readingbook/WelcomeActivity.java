@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.readingbook.log_in_out.LoginActivity;
+
 public class WelcomeActivity extends AppCompatActivity {
     Button btnNext;
     @Override
@@ -17,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelectRoleActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
