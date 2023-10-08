@@ -2,46 +2,57 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
+
+    <group android:checkableBehavior="single"
+        android:itemBackground="?android:attr/listDivider">
 
         <item
             android:id="@+id/staff_manager"
-            android:layout_marginTop="4dp"
             android:title="Staff Manager" />
+
         <item
             android:id="@+id/customer_manager"
-            android:title="Customer Manager"/>
+            android:title="Customer Manager" />
 
     </group>
-    <group android:checkableBehavior="single">
+
+    <group android:checkableBehavior="single"
+        android:itemBackground="?android:attr/listDivider">
 
         <item
             android:id="@+id/kind_book_manager"
-            android:layout_marginTop="4dp"
             android:title="Kind of book" />
+
         <item
             android:id="@+id/book_manager"
-            android:layout_marginTop="4dp"
             android:title="Book Manager" />
+
         <item
             android:id="@+id/phieu_muon_manager"
-            android:title="Loan Slip Manager"/>
+            android:title="Loan Slip Manager" />
 
     </group>
-    <group android:checkableBehavior="single">
+
+    <group android:checkableBehavior="single"
+        android:itemBackground="?android:attr/listDivider">
+
         <item
             android:id="@+id/statistical_manager"
-            android:layout_marginTop="4dp"
             android:title="Statistical Manager" />
+
     </group>
-    <group android:checkableBehavior="single">
+
+    <group android:checkableBehavior="single"
+        android:itemBackground="?android:attr/listDivider">
+
         <item
             android:id="@+id/setting"
-            android:layout_marginTop="4dp"
             android:title="Setting" />
+
         <item
             android:id="@+id/logout"
-            android:layout_marginTop="4dp"
             android:title="Logout" />
+
     </group>
+
 </menu>

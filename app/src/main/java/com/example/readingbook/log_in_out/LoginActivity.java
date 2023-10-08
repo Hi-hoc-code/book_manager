@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.readingbook.MainActivity;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtEmail, edtPassword;
     Button btnLogin;
     FirebaseAuth mAuth;
+    TextView btndontneedlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        btndontneedlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void addControls() {
@@ -71,5 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword= findViewById(R.id.edtPassLoginScreen);
         btnLogin= findViewById(R.id.btnLoginScreen);
         mAuth = FirebaseAuth.getInstance();
+        btndontneedlogin = findViewById(R.id.btndontneedlogin);
     }
 }
