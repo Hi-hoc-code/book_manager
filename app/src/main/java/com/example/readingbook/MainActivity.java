@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -13,10 +14,11 @@ import android.widget.FrameLayout;
 
 import com.example.readingbook.fragment.Book_Fragment;
 import com.example.readingbook.fragment.Customer_Fragment;
-import com.example.readingbook.fragment.Kind_of_book_Fragment;
+import com.example.readingbook.fragment.Home_Fragment;
+import com.example.readingbook.fragment.Loai_Sach_Fragment;
 import com.example.readingbook.fragment.PhieuMuon_Fragment;
 import com.example.readingbook.fragment.Staff_Fragment;
-import com.example.readingbook.fragment.Statiscal_Fragment;
+import com.example.readingbook.fragment.Thong_Ke_Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
+                Fragment fragment = null;
+//                fragment = new Home_Fragment();
+                if (item.getItemId()==R.id.home_fragment){
+                    toolbar.setTitle("HOME");
+                    fragment = new Home_Fragment();
+                }
                 if(item.getItemId()==R.id.staff_manager){
                     toolbar.setTitle("Staff manager");
                     fragment = new Staff_Fragment();
@@ -54,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new Customer_Fragment();
                 }else if (item.getItemId()==R.id.kind_book_manager) {
                     toolbar.setTitle("Kind of book manager");
-                    fragment = new Kind_of_book_Fragment();
+                    fragment = new Loai_Sach_Fragment();
                 }else if (item.getItemId()==R.id.book_manager) {
                     toolbar.setTitle("Book manager");
                     fragment = new Book_Fragment();
@@ -63,9 +70,15 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new PhieuMuon_Fragment();
                 }else if (item.getItemId()==R.id.statistical_manager) {
                     toolbar.setTitle("Statistical manager");
-                    fragment = new Statiscal_Fragment();
+                    fragment = new Thong_Ke_Fragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
+                if (fragment != null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frameLayout, fragment)
+                            .commit();
+                }
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
         });

@@ -2,53 +2,67 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+    <item
+        android:id="@+id/home_fragment"
+        android:layout_marginTop="4dp"
+        android:title="Trang chủ"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/staff_manager"
+        android:layout_marginTop="4dp"
+        android:title="Quản lí nhân viên"
+        android:icon="@drawable/staff_manager"/>
+    <item
+        android:id="@+id/customer_manager"
+        android:layout_marginTop="4dp"
+        android:title="Quản lí khách hàng"
+        android:icon="@drawable/customer"/>
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/staff_manager"
-            android:title="Staff Manager"
-            android:layout_marginTop="4dp" />
-
-        <item
-            android:id="@+id/customer_manager"
-            android:title="Customer Manager"
-            android:layout_marginTop="4dp" />
+        <item android:title="Sách">
+            <menu>
+                <item
+                    android:id="@+id/kind_book_manager"
+                    android:layout_marginTop="4dp"
+                    android:title="Quản lí loại sách"
+                    android:icon="@drawable/kind_book"/>
+                <item
+                    android:id="@+id/book_manager"
+                    android:layout_marginTop="4dp"
+                    android:title="Quản lí sách"
+                    android:icon="@drawable/book"/>
+                <item
+                    android:id="@+id/phieu_muon_manager"
+                    android:layout_marginTop="4dp"
+                    android:title="Quản lí phiếu mượn"
+                    android:icon="@drawable/phieu_muon"/>
+            </menu>
+        </item>
     </group>
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/kind_book_manager"
-            android:title="Kind of book"
-            android:layout_marginTop="4dp" />
-
-        <item
-            android:id="@+id/book_manager"
-            android:title="Book Manager"
-            android:layout_marginTop="4dp" />
-
-        <item
-            android:id="@+id/phieu_muon_manager"
-            android:title="Loan Slip Manager"
-            android:layout_marginTop="4dp" />
+        <item android:title="Khác">
+            <menu>
+                <item
+                    android:id="@+id/statistical_manager"
+                    android:layout_marginTop="4dp"
+                    android:title="Tống kê"
+                    android:icon="@drawable/thongke"/>
+                <item
+                    android:id="@+id/setting"
+                    android:layout_marginTop="4dp"
+                    android:title="Cài đặt"
+                    android:icon="@drawable/setting"/>
+                <item
+                    android:id="@+id/logout"
+                    android:layout_marginTop="4dp"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/logout"/>
+            </menu>
+        </item>
     </group>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/statistical_manager"
-            android:title="Statistical Manager"
-            android:layout_marginTop="4dp" />
-    </group>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/setting"
-            android:title="Setting"
-            android:layout_marginTop="4dp" />
-
-        <item
-            android:id="@+id/logout"
-            android:title="Logout"
-            android:layout_marginTop="4dp" />
-    </group>
 
 </menu>

@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.readingbook.R;
 
-public class Statiscal_Fragment extends Fragment {
+public class Loai_Sach_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.statistical_manager, container, false);
+        View view = inflater.inflate(R.layout.kind_of_book_fragment,container,false);
         return view;
     }
 }
