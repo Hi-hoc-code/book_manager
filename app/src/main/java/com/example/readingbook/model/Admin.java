@@ -1,30 +1,27 @@
 package com.example.readingbook.model;
 
-import android.content.Intent;
-
 import java.util.HashMap;
-import java.util.Objects;
 
-public class User {
+public class Admin {
     private String id;
     private String userName;
     private String email;
     private String pass;
 
-    public User(String id, String userName, String email, String pass) {
+    public Admin(String id, String userName, String email, String pass) {
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.pass = pass;
     }
 
-    public User(String userName, String email, String pass) {
+    public Admin(String userName, String email, String pass) {
         this.userName = userName;
         this.email = email;
         this.pass = pass;
     }
 
-    public User() {
+    public Admin() {
     }
 
     public String getId() {

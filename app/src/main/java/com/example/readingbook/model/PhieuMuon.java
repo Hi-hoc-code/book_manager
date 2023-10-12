@@ -4,18 +4,52 @@ import java.util.Date;
 
 public class PhieuMuon {
     private Integer id;
-    private Date date;
-    private String note;
+    private String ngayMuon, ngayTra;
+    private Integer maLoai;
+    private Integer maThuThu;
+    private String img;
+    private String status;
 
-    public PhieuMuon(Integer id, Date date, String note) {
+    public PhieuMuon(Integer id, String ngayMuon, String ngayTra, Integer maLoai, Integer maThuThu, String img, String status) {
         this.id = id;
-        this.date = date;
-        this.note = note;
+        this.ngayMuon = ngayMuon;
+        this.ngayTra = ngayTra;
+        this.maLoai = maLoai;
+        this.maThuThu = maThuThu;
+        this.img = img;
+        this.status = status;
     }
 
-    public PhieuMuon(Date date, String note) {
-        this.date = date;
-        this.note = note;
+    public PhieuMuon(Integer id, String ngayMuon, String ngayTra, String img, String status) {
+        this.id = id;
+        this.ngayMuon = ngayMuon;
+        this.ngayTra = ngayTra;
+        this.img = img;
+        this.status = status;
+    }
+
+    public PhieuMuon(String ngayMuon, String ngayTra, Integer maLoai, Integer maThuThu, String img, String status) {
+        this.ngayMuon = ngayMuon;
+        this.ngayTra = ngayTra;
+        this.maLoai = maLoai;
+        this.maThuThu = maThuThu;
+        this.img = img;
+        this.status = status;
+    }
+
+    public PhieuMuon(String ngayMuon, String ngayTra, String img, String status) {
+        this.ngayMuon = ngayMuon;
+        this.ngayTra = ngayTra;
+        this.img = img;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getId() {
@@ -26,19 +60,43 @@ public class PhieuMuon {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getNgayMuon() {
+        return ngayMuon;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setNgayMuon(String ngayMuon) {
+        this.ngayMuon = ngayMuon;
     }
 
-    public String getNote() {
-        return note;
+    public String getNgayTra() {
+        return ngayTra;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setNgayTra(String ngayTra) {
+        this.ngayTra = ngayTra;
+    }
+
+    public Integer getMaLoai() {
+        return maLoai;
+    }
+
+    public void setMaLoai(Integer maLoai) {
+        this.maLoai = maLoai;
+    }
+
+    public Integer getMaThuThu() {
+        return maThuThu;
+    }
+
+    public void setMaThuThu(Integer maThuThu) {
+        this.maThuThu = maThuThu;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.readingbook.R;
-import com.example.readingbook.model.User;
+import com.example.readingbook.model.Admin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,8 +21,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -91,7 +89,7 @@ public class SignupActivity extends AppCompatActivity {
                                     // Add thông tin vào firebase
 
                                     String id= UUID.randomUUID().toString();
-                                    User user = new User(id, username,email,pass);
+                                    Admin user = new Admin(id, username,email,pass);
                                     HashMap<String,Object> mapUser = user.convertHashMap();
                                     dataBase.collection("user").document(id).set(mapUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

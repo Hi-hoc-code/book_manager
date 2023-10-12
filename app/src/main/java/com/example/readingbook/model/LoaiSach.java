@@ -1,11 +1,11 @@
 package com.example.readingbook.model;
 
-public class KindOfBook {
+public class LoaiSach {
     private Integer id;
     private String name;
-    private Integer image;
+    private String image;
 
-    public KindOfBook(Integer id, String name, Integer image) {
+    public LoaiSach(Integer id, String name, String image) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -27,11 +27,11 @@ public class KindOfBook {
         this.name = name;
     }
 
-    public Integer getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Integer image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

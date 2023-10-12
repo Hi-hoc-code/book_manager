@@ -12,13 +12,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.example.readingbook.fragment.Book_Fragment;
+import com.example.readingbook.fragment.Nhan_Vien_Fragment;
+import com.example.readingbook.fragment.QuanLiFragment;
+import com.example.readingbook.fragment.Sach_Fragment;
 import com.example.readingbook.fragment.Customer_Fragment;
 import com.example.readingbook.fragment.Home_Fragment;
 import com.example.readingbook.fragment.Loai_Sach_Fragment;
 import com.example.readingbook.fragment.PhieuMuon_Fragment;
-import com.example.readingbook.fragment.Staff_Fragment;
+import com.example.readingbook.fragment.Setting_Fragment;
 import com.example.readingbook.fragment.Thong_Ke_Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     FrameLayout frameLayout;
     NavigationView navigationView;
+    BottomNavigationView bottom_navigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,27 +55,31 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = null;
 //                fragment = new Home_Fragment();
                 if (item.getItemId()==R.id.home_fragment){
-                    toolbar.setTitle("HOME");
+                    toolbar.setTitle("Trang chủ");
                     fragment = new Home_Fragment();
                 }
+
                 if(item.getItemId()==R.id.staff_manager){
-                    toolbar.setTitle("Staff manager");
-                    fragment = new Staff_Fragment();
+                    toolbar.setTitle("Quản lí nhân viên");
+                    fragment = new Nhan_Vien_Fragment();
                 } else if (item.getItemId()==R.id.customer_manager) {
-                    toolbar.setTitle("Customer manager");
+                    toolbar.setTitle("Quản lí khách hàng");
                     fragment = new Customer_Fragment();
                 }else if (item.getItemId()==R.id.kind_book_manager) {
-                    toolbar.setTitle("Kind of book manager");
+                    toolbar.setTitle("Quản lí loại sách");
                     fragment = new Loai_Sach_Fragment();
                 }else if (item.getItemId()==R.id.book_manager) {
-                    toolbar.setTitle("Book manager");
-                    fragment = new Book_Fragment();
+                    toolbar.setTitle("Quản lí sách");
+                    fragment = new Sach_Fragment();
                 }else if (item.getItemId()==R.id.phieu_muon_manager) {
-                    toolbar.setTitle("Loan slip manager");
+                    toolbar.setTitle("Quản lí phiếu mượn");
                     fragment = new PhieuMuon_Fragment();
                 }else if (item.getItemId()==R.id.statistical_manager) {
-                    toolbar.setTitle("Statistical manager");
+                    toolbar.setTitle("Quản lí thống kê");
                     fragment = new Thong_Ke_Fragment();
+                }else if(item.getItemId()==R.id.setting){
+                    toolbar.setTitle("Cài đặt");
+                    fragment = new Setting_Fragment();
                 }
                 if (fragment != null) {
                     getSupportFragmentManager().beginTransaction()
@@ -82,12 +91,36 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        bottom_navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = new Home_Fragment();
+                if (item.getItemId()==R.id.home_fragment){
+                    toolbar.setTitle("Trang chủ");
+                    fragment = new Home_Fragment();
+                }else if(item.getItemId()==R.id.quanLi){
+                    toolbar.setTitle("Quản lí");
+                    fragment= new QuanLiFragment();
+                }else if(item.getItemId()== R.id.thongKe){
+                    toolbar.setTitle("Thống kê");
+                    fragment = new Thong_Ke_Fragment();
+                }else if(item.getItemId() == R.id.setting_bottom){
+                    toolbar.setTitle("Cài đặt");
+                    fragment = new Setting_Fragment();
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
+                return true;
+            }
+        });
+
     }
+
 
     private void addControls() {
         toolbar =  findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         frameLayout = findViewById(R.id.frameLayout);
         navigationView = findViewById(R.id.navigationView);
+        bottom_navigation = findViewById(R.id.bottom_navigation);
     }
 }

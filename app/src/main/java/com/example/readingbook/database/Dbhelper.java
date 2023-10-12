@@ -39,20 +39,25 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "ma_thu_thu_pm integer," +
                 "ngay_muon date," +
                 "ngay_tra date," +
+                "status text," +
                 "hinh_pm text," +
                 "foreign key(ma_thanh_vien_pm) references THANHVIEN(ma_thanh_vien)," +
                 "foreign key(ma_sach_pm) references SACH(ma_sach)," +
                 "foreign key(ma_thu_thu_pm) references THUTHU(ma_thu_thu))";
         db.execSQL(phieu_muon);
-        String thanh_vien ="CREATE TABLE THANHVIEN(ma_thanh_vien integer primary key autoincrement," +
-                "ten text," +
-                "hinh_anh text)";
-        db.execSQL(thanh_vien);
         String thu_thu = "CREATE TABLE THUTHU(ma_thu_thu integer primary key autoincrement," +
                 "ten text," +
+                "ten_dang_nhap text," +
                 "mat_khau text," +
                 "avatar)";
         db.execSQL(thu_thu);
+        String khach_hang = "CREATE TABLE KHACHHANG(" +
+                "ma_khach_hang integer primary key autoincrement," +
+                "ten_khach_hang text," +
+                "email text," +
+                "password text," +
+                "image text)";
+        db.execSQL(khach_hang);
     }
 
     @Override
@@ -62,6 +67,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS PHIEUMUON");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS THANHVIEN");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS THUTHU");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS KHACHHANG");
         onCreate(sqLiteDatabase);
     }
 }

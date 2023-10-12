@@ -7,16 +7,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.readingbook.R;
 
-public class Book_Fragment extends Fragment {
+public class Nhan_Vien_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.book_fragment,container,false);
+        View view = inflater.inflate(R.layout.activity_staff_fragment,container,false);
         return view;
     }
 }
