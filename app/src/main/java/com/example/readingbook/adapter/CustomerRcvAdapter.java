@@ -74,7 +74,7 @@ public class CustomerRcvAdapter extends RecyclerView.Adapter<CustomerRcvAdapter.
         holder.btnEditKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDigLogEdit();
+                
             }
         });
 
