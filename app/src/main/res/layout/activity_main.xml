@@ -17,7 +17,8 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:background="#FFFAE7">
+        android:background="#FF6955"
+        app:titleTextColor="#fff">
 
     </androidx.appcompat.widget.Toolbar>
         <FrameLayout

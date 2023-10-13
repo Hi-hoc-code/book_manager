@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadingBook"
         tools:targetApi="31">
-        <activity
-            android:name=".fragment.Staff_Fragment"
-            android:exported="false" />
         <activity
             android:name=".log_in_out.SignupActivity"
             android:exported="false" />
@@ -38,9 +36,6 @@
         <activity
             android:name=".log_in_out.LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

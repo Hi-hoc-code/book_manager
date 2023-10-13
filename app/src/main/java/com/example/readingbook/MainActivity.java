@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 if (fragment != null) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frameLayout, fragment)
+                            .addToBackStack(null)
                             .commit();
                 }
                 DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -108,7 +109,11 @@ public class MainActivity extends AppCompatActivity {
                     toolbar.setTitle("Cài đặt");
                     fragment = new Setting_Fragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,fragment).commit();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout,fragment)
+                        .addToBackStack(null)
+                        .commit();
                 return true;
             }
         });

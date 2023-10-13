@@ -77,7 +77,7 @@ public class SachDAO {
     public boolean update(Integer index ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        int row = db.update("SACH",values,"ma_sach=?",new String[]{String.valueOf(index)});
+        int row = db.update("SACH",values,"ma_sach  =?",new String[]{String.valueOf(index)});
         return row>0;
     }
 }

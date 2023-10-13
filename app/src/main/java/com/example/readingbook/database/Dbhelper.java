@@ -54,10 +54,12 @@ public class Dbhelper extends SQLiteOpenHelper {
         String khach_hang = "CREATE TABLE KHACHHANG(" +
                 "ma_khach_hang integer primary key autoincrement," +
                 "ten_khach_hang text," +
+                "sdt text," +
                 "email text," +
                 "password text," +
                 "image text)";
         db.execSQL(khach_hang);
+
     }
 
     @Override
