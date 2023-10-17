@@ -12,12 +12,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.example.readingbook.fragment.Nhan_Vien_Fragment;
-import com.example.readingbook.fragment.QuanLiFragment;
-import com.example.readingbook.fragment.Sach_Fragment;
+import com.example.readingbook.fragment.StaffFragment;
+import com.example.readingbook.fragment.ManagerFragment;
+import com.example.readingbook.fragment.BookFragment;
 import com.example.readingbook.fragment.Customer_Fragment;
 import com.example.readingbook.fragment.Home_Fragment;
-import com.example.readingbook.fragment.Loai_Sach_Fragment;
+import com.example.readingbook.fragment.KindBookFragment;
 import com.example.readingbook.fragment.PhieuMuon_Fragment;
 import com.example.readingbook.fragment.Setting_Fragment;
 import com.example.readingbook.fragment.Thong_Ke_Fragment;
@@ -61,16 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if(item.getItemId()==R.id.staff_manager){
                     toolbar.setTitle("Quản lí nhân viên");
-                    fragment = new Nhan_Vien_Fragment();
+                    fragment = new StaffFragment();
                 } else if (item.getItemId()==R.id.customer_manager) {
                     toolbar.setTitle("Quản lí khách hàng");
                     fragment = new Customer_Fragment();
                 }else if (item.getItemId()==R.id.kind_book_manager) {
                     toolbar.setTitle("Quản lí loại sách");
-                    fragment = new Loai_Sach_Fragment();
+                    fragment = new KindBookFragment();
                 }else if (item.getItemId()==R.id.book_manager) {
                     toolbar.setTitle("Quản lí sách");
-                    fragment = new Sach_Fragment();
+                    fragment = new BookFragment();
                 }else if (item.getItemId()==R.id.phieu_muon_manager) {
                     toolbar.setTitle("Quản lí phiếu mượn");
                     fragment = new PhieuMuon_Fragment();
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new Home_Fragment();
                 }else if(item.getItemId()==R.id.quanLi){
                     toolbar.setTitle("Quản lí");
-                    fragment= new QuanLiFragment();
+                    fragment= new ManagerFragment();
                 }else if(item.getItemId()== R.id.thongKe){
                     toolbar.setTitle("Thống kê");
                     fragment = new Thong_Ke_Fragment();

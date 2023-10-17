@@ -6,19 +6,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.readingbook.database.Dbhelper;
-import com.example.readingbook.model.LoaiSach;
-import com.google.protobuf.StringValue;
+import com.example.readingbook.model.KindBook;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class LoaiSachDAO {
+public class KindBookDAO {
     Dbhelper dbhelper;
-    public LoaiSachDAO(Context context){
+    public KindBookDAO(Context context){
         dbhelper = new Dbhelper(context);
     }
-    public ArrayList<LoaiSach> getAll(){
-        ArrayList<LoaiSach> list = new ArrayList<>();
+    public ArrayList<KindBook> getAll(){
+        ArrayList<KindBook> list = new ArrayList<>();
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         String loaiSach = "SELECT * FROM LOAISACH";
         Cursor cursor = db.rawQuery(loaiSach,null);
@@ -27,13 +25,13 @@ public class LoaiSachDAO {
             Integer maLoai = cursor.getInt(0);
             String tenLoai = cursor.getString(1);
             String img = cursor.getString(2);
-            list.add(new LoaiSach(maLoai, tenLoai,img));
+            list.add(new KindBook(maLoai, tenLoai,img));
             cursor.moveToNext();
         }
         db.close();
         return list;
     }
-    public boolean add(LoaiSach item){
+    public boolean add(KindBook item){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ten_loai",item.getName());
@@ -46,12 +44,12 @@ public class LoaiSachDAO {
         int row = db.delete("LoaiSach","ma_loai=?", new String[]{String.valueOf(index)});
         return row >0;
     }
-    public boolean update(LoaiSach item){
+    public boolean update(KindBook item){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ten_loai",item.getName());
         values.put("hinh",item.getImage());
-        int row = db.update("LoaiSach",values,"ma_loai=?",new String[]{String.valueOf(item.getId())});
+        int row = db.update("LoaiSach",values,"ma_loai  =?",new String[]{String.valueOf(item.getId())});
         return row >0;
     }
 }

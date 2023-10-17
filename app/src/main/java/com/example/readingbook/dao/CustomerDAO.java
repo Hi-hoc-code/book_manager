@@ -6,19 +6,19 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.readingbook.database.Dbhelper;
-import com.example.readingbook.model.KhachHang;
-import com.example.readingbook.model.PhieuMuon;
+import com.example.readingbook.model.Customer;
 
 import java.util.ArrayList;
 
-public class ThanhVienDAO {
+public class CustomerDAO {
     Dbhelper dbhelper;
-    public ThanhVienDAO(Context context){
+    SQLiteDatabase db;
+    public CustomerDAO(Context context){
         dbhelper = new Dbhelper(context);
     }
-    public ArrayList<KhachHang> getAll(){
-        ArrayList<KhachHang> list = new ArrayList<>();
-        SQLiteDatabase db = dbhelper.getReadableDatabase();
+    public ArrayList<Customer> getAll(){
+        ArrayList<Customer> list = new ArrayList<>();
+         db = dbhelper.getReadableDatabase();
         String khach_hang = "SELECT * FROM KHACHHANG";
         Cursor cursor = db.rawQuery(khach_hang,null);
         cursor.moveToFirst();
@@ -29,16 +29,15 @@ public class ThanhVienDAO {
             String email = cursor.getString(3);
             String password = cursor.getString(4);
             String img = cursor.getString(5);
-            list.add(new KhachHang(id, ten,sdt, email,password,img));
+            list.add(new Customer(id, ten,sdt, email,password,img));
             cursor.moveToNext();
         }
         db.close();
         return list;
     }
-    public boolean insert(KhachHang item ){
-        SQLiteDatabase db = dbhelper.getReadableDatabase();
+    public boolean insert(Customer item ){
+         db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-//        values.put("ma_khach_hang",item.getId());
         values.put("ten_khach_hang",item.getTen());
         values.put("sdt",item.getSdt());
         values.put("email",item.getEmail());
@@ -47,15 +46,19 @@ public class ThanhVienDAO {
         long row = db.insert("KHACHHANG",null,values);
         return row!=-1;
     }
-    public boolean update(KhachHang item ){
-        SQLiteDatabase db = dbhelper.getReadableDatabase();
+    public boolean update(Customer item ){
+         db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("ten_khach_hang",item.getTen());
+        values.put("sdt",item.getSdt());
+        values.put("email",item.getEmail());
+        values.put("password",item.getPassword());
+        values.put("image",item.getImage());
         int row = db.update("KHACHHANG",values,"ma_khach_hang=?",new String[]{String.valueOf(item.getId())});
         return row>0;
     }
     public boolean delete(Integer index ){
-        SQLiteDatabase db = dbhelper.getReadableDatabase();
-        ContentValues values = new ContentValues();
+         db = dbhelper.getWritableDatabase();
         int row = db.delete("KHACHHANG","ma_khach_hang=?",new String[]{String.valueOf(index)});
         return row>0;
     }

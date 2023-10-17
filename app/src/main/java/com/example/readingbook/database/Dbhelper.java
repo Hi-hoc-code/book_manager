@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 
 public class Dbhelper extends SQLiteOpenHelper {
     public Dbhelper( Context context) {
-        super(context, "BM", null, 1);
+        super(context, "BM", null, 2);
     }
 
     @Override

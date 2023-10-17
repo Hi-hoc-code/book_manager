@@ -1,12 +1,17 @@
 package com.example.readingbook.model;
 
-public class LoaiSach {
+public class KindBook {
     private Integer id;
     private String name;
     private String image;
 
-    public LoaiSach(Integer id, String name, String image) {
+    public KindBook(Integer id, String name, String image) {
         this.id = id;
+        this.name = name;
+        this.image = image;
+    }
+
+    public KindBook(String name, String image) {
         this.name = name;
         this.image = image;
     }

@@ -1,13 +1,13 @@
 package com.example.readingbook.model;
 
-public class NhanVien {
+public class Staff {
     private Integer maNhanVien;
     private String hoTen;
     private String tenDangNhap;
     private String matKhau;
     private String img;
 
-    public NhanVien(Integer maNhanVien, String hoTen,String tenDangNhap, String matKhau, String img) {
+    public Staff(Integer maNhanVien, String hoTen, String tenDangNhap, String matKhau, String img) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.tenDangNhap = tenDangNhap;
@@ -15,7 +15,7 @@ public class NhanVien {
         this.img = img;
     }
 
-    public NhanVien(String hoTen,String tenDangNhap, String matKhau, String img) {
+    public Staff(String hoTen, String tenDangNhap, String matKhau, String img) {
         this.hoTen = hoTen;
         this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;

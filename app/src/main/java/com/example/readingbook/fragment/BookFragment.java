@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.readingbook.R;
 
-public class Nhan_Vien_Fragment extends Fragment {
+public class BookFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_staff_fragment,container,false);
+        View view = inflater.inflate(R.layout.book_fragment,container,false);
         return view;
     }
 }

@@ -7,48 +7,30 @@
     android:padding="16dp"
     android:background="@drawable/border_dialog">
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgAvatarKhachHang"
-        app:shapeAppearanceOverlay="@style/circular"
+        android:id="@+id/imgLoaiSachDig"
+        app:shapeAppearanceOverlay="@style/loai_sach"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/ava"
-        android:layout_gravity="center"/>
-    <EditText
-        android:id="@+id/edtTenKhachHang"
+        android:src="@drawable/loai"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"/>
+        <EditText
+        android:id="@+id/edtTenLoaiDig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên khách hàng"
-        android:layout_marginTop="8dp"/>
-    <EditText
-        android:id="@+id/edtSdtKhachHang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Số điện thoại"
-        android:layout_marginTop="8dp"/>
-    <EditText
-        android:id="@+id/edtEmailKhachHang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_marginTop="8dp"/>
-    <EditText
-        android:id="@+id/edtPassKhachHang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_marginTop="8dp"/>
-
+        android:hint="Tên loại sách"
+        android:layout_marginTop="16dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="12dp">
+        android:layout_marginTop="16dp">
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/btnSubmitKhachHang"
+            android:id="@+id/btnSubmitDigLoai"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="Xác nhận"
@@ -60,7 +42,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/btnHuyDigKhachHang"
+            android:id="@+id/btnHuyDigLoai"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="Hủy"

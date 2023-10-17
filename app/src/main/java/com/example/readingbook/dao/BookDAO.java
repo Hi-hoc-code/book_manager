@@ -10,10 +10,10 @@ import com.example.readingbook.model.Book;
 
 import java.util.ArrayList;
 
-public class SachDAO {
+public class BookDAO {
     Dbhelper dbhelper;
 
-    public SachDAO(Context context) {
+    public BookDAO(Context context) {
         dbhelper = new Dbhelper(context);
     }
     public ArrayList<Book> getAllBook() {

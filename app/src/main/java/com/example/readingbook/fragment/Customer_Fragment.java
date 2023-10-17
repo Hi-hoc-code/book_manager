@@ -1,14 +1,10 @@
     package com.example.readingbook.fragment;
 
-    import android.app.Activity;
     import android.app.Dialog;
-    import android.content.Intent;
     import android.graphics.Bitmap;
     import android.graphics.drawable.BitmapDrawable;
     import android.graphics.drawable.Drawable;
-    import android.net.Uri;
     import android.os.Bundle;
-    import android.provider.MediaStore;
     import android.util.Base64;
     import android.view.LayoutInflater;
     import android.view.View;
@@ -27,18 +23,17 @@
 
     import com.example.readingbook.R;
     import com.example.readingbook.adapter.CustomerRcvAdapter;
-    import com.example.readingbook.dao.ThanhVienDAO;
-    import com.example.readingbook.model.KhachHang;
+    import com.example.readingbook.dao.CustomerDAO;
+    import com.example.readingbook.model.Customer;
     import com.google.android.material.floatingactionbutton.FloatingActionButton;
     import com.google.android.material.imageview.ShapeableImageView;
 
     import java.io.ByteArrayOutputStream;
-    import java.io.IOException;
     import java.util.ArrayList;
 
     public class Customer_Fragment extends Fragment {
-        private ThanhVienDAO thanhVienDAO;
-        private ArrayList<KhachHang> list;
+        private CustomerDAO customerDAO;
+        private ArrayList<Customer> list;
         private RecyclerView rcvKhachHang;
         private CustomerRcvAdapter customerRcvAdapter;
         private ActivityResultLauncher<String> pickImageLauncher;
@@ -65,13 +60,14 @@
             );
         }
 
+
         private void addControls(View view) {
             rcvKhachHang = view.findViewById(R.id.rvcLisstKhachHang);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
             rcvKhachHang.setLayoutManager(layoutManager);
-            thanhVienDAO = new ThanhVienDAO(getContext());
-            list = thanhVienDAO.getAll();
-            customerRcvAdapter = new CustomerRcvAdapter(getContext(), list);
+            customerDAO = new CustomerDAO(getContext());
+            list = customerDAO.getAll();
+            customerRcvAdapter = new CustomerRcvAdapter(getContext(), list, pickImageLauncher);
             rcvKhachHang.setAdapter(customerRcvAdapter);
 
             FloatingActionButton btnAddKhachHang = view.findViewById(R.id.btnAddKhachHang);
@@ -112,11 +108,11 @@
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     String avatar = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
-                    KhachHang item = new KhachHang(ten, sdt, email, pass, avatar);
-                    if (thanhVienDAO.insert(item)) {
+                    Customer item = new Customer(ten, sdt, email, pass, avatar);
+                    if (customerDAO.insert(item)) {
                         Toast.makeText(getContext(), "Thêm tài khoản khách hàng thành công", Toast.LENGTH_SHORT).show();
                         list.clear();
-                        list.addAll(thanhVienDAO.getAll());
+                        list.addAll(customerDAO.getAll());
                         customerRcvAdapter.notifyDataSetChanged();
                         dialog.dismiss();
                     } else {

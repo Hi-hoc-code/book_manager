@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.readingbook.R;
 import com.example.readingbook.adapter.RecycleViewBookManagerAdapter;
-import com.example.readingbook.dao.SachDAO;
+import com.example.readingbook.dao.BookDAO;
 import com.example.readingbook.model.Book;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class Home_Fragment extends Fragment {
     Context context;
     RecyclerView rcvBook;
-    SachDAO bookDAO;
+    BookDAO bookDAO;
     RecycleViewBookManagerAdapter recycleViewBookManagerAdapter;
     ArrayList<Book> list;
 
@@ -43,7 +43,7 @@ public class Home_Fragment extends Fragment {
     }
 
     private void addEvents() {
-        bookDAO = new SachDAO(context);
+        bookDAO = new BookDAO(context);
         list = bookDAO.getAllBook();
         recycleViewBookManagerAdapter = new RecycleViewBookManagerAdapter(context, list);
         rcvBook.setAdapter(recycleViewBookManagerAdapter);

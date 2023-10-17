@@ -6,13 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.readingbook.database.Dbhelper;
-import com.example.readingbook.model.NhanVien;
+import com.example.readingbook.model.Staff;
 
 import java.util.ArrayList;
 
-public class ThuThuDAO {
+public class StaffDAO {
     Dbhelper dbhelper;
-    public ThuThuDAO (Context context){
+    public StaffDAO(Context context){
         dbhelper = new Dbhelper(context);
     }
     public boolean checkLoginNhanVien(String username, String password) {
@@ -26,8 +26,8 @@ public class ThuThuDAO {
         db.close();
         return count > 0;
     }
-    public ArrayList<NhanVien> getAll(){
-        ArrayList<NhanVien> list = new ArrayList<>();
+    public ArrayList<Staff> getAll(){
+        ArrayList<Staff> list = new ArrayList<>();
         SQLiteDatabase db = dbhelper .getReadableDatabase();
         String nhanVien ="SELECT * FROM THUTHU";
         Cursor cursor = db.rawQuery(nhanVien,null);
@@ -38,13 +38,13 @@ public class ThuThuDAO {
             String tenDangNhap = cursor.getString(2);
             String matKhau = cursor.getString(3);
             String img = cursor.getString(4);
-            list.add(new NhanVien(maNhanVien,tenNhanVien,tenDangNhap,matKhau,img));
+            list.add(new Staff(maNhanVien,tenNhanVien,tenDangNhap,matKhau,img));
             cursor.moveToNext();
         }
         db.close();
         return list;
     }
-    public boolean insert(NhanVien item ){
+    public boolean insert(Staff item ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ten",item.getHoTen());
@@ -54,7 +54,7 @@ public class ThuThuDAO {
         long row = db.insert("THUTHU",null,values);
         return row!=1;
     }
-    public boolean update(NhanVien item){
+    public boolean update(Staff item){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         int row = db.update("THUTHU",null,"ma_thu_thu=?",new String[]{String.valueOf(item.getMaNhanVien())});
         return row>0;

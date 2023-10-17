@@ -9,16 +9,10 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.readingbook.R;
 
-import java.util.ArrayList;
-
-public class QuanLiFragment extends Fragment {
+public class ManagerFragment extends Fragment {
     private Button[] buttons;
 
     @Nullable
@@ -38,13 +32,13 @@ public class QuanLiFragment extends Fragment {
                     Fragment fragment = null;
                     int viewId = view.getId();
                     if (viewId == R.id.btnQuanLiNhanVien) {
-                        fragment = new Nhan_Vien_Fragment();
+                        fragment = new StaffFragment();
                     } else if (viewId == R.id.btnQuanLiKhachHang) {
                         fragment = new Customer_Fragment();
                     } else if (viewId == R.id.btnQuanLiLoaiSach) {
-                        fragment = new Loai_Sach_Fragment();
+                        fragment = new KindBookFragment();
                     } else if (viewId == R.id.btnQuanLiSach) {
-                        fragment = new Sach_Fragment();
+                        fragment = new BookFragment();
                     } else if (viewId == R.id.btnQuanLiPhieuMuon) {
                         fragment = new PhieuMuon_Fragment();
                     }

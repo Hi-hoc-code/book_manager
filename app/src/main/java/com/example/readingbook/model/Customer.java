@@ -1,6 +1,6 @@
 package com.example.readingbook.model;
 
-public class KhachHang {
+public class Customer {
     private Integer id ;
     private String ten;
     private String sdt;
@@ -8,7 +8,7 @@ public class KhachHang {
     private String password;
     private String image;
 
-    public KhachHang(Integer id, String ten,String sdt, String email, String password, String image) {
+    public Customer(Integer id, String ten, String sdt, String email, String password, String image) {
         this.id = id;
         this.ten = ten;
         this.sdt = sdt;
@@ -17,14 +17,15 @@ public class KhachHang {
         this.image = image;
     }
 
-    public KhachHang(String ten, String sdt, String email, String password) {
+    public Customer(String ten, String sdt, String email, String password) {
+
         this.ten = ten;
         this.sdt = sdt;
         this.email = email;
         this.password = password;
     }
 
-    public KhachHang(String ten, String sdt, String email, String password, String image) {
+    public Customer(String ten, String sdt, String email, String password, String image) {
         this.ten = ten;
         this.sdt = sdt;
         this.email = email;
