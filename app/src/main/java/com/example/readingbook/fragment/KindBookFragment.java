@@ -69,12 +69,12 @@ public class KindBookFragment extends Fragment {
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dialog_add_loai_sach);
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
                 EditText edtTenLoai;
                 Button btnSubmitLoai, btnCancelLoai;
                 btnSubmitLoai = dialog.findViewById(R.id.btnSubmitDigLoai);
                 btnCancelLoai = dialog.findViewById(R.id.btnHuyDigLoai);
                 edtTenLoai = dialog.findViewById(R.id.edtTenLoaiDig);
-
                 imgLoaiDig = dialog.findViewById(R.id.imgLoaiSachDig);
 //                Drawable drawable = imgLoaiDig.getDrawable();
 

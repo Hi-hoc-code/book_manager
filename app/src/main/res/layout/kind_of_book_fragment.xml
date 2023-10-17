@@ -9,12 +9,11 @@
     android:paddingHorizontal="28dp"
     android:paddingVertical="16dp"
     android:gravity="center">
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvLoaiSach"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/rcvLoaiSach"
         android:layout_gravity="center">
     </androidx.recyclerview.widget.RecyclerView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton

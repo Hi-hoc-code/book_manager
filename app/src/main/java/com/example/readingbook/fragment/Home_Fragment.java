@@ -14,18 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.readingbook.R;
-import com.example.readingbook.adapter.RecycleViewBookManagerAdapter;
 import com.example.readingbook.dao.BookDAO;
 import com.example.readingbook.model.Book;
 
 import java.util.ArrayList;
 
 public class Home_Fragment extends Fragment {
-    Context context;
-    RecyclerView rcvBook;
-    BookDAO bookDAO;
-    RecycleViewBookManagerAdapter recycleViewBookManagerAdapter;
-    ArrayList<Book> list;
+
 
     @Nullable
     @Override
@@ -36,27 +31,14 @@ public class Home_Fragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
+
 
     private void addEvents() {
-        bookDAO = new BookDAO(context);
-        list = bookDAO.getAllBook();
-        recycleViewBookManagerAdapter = new RecycleViewBookManagerAdapter(context, list);
-        rcvBook.setAdapter(recycleViewBookManagerAdapter);
+
     }
 
     private void addControls(View view) {
-        rcvBook = view.findViewById(R.id.rvcBook);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        rcvBook.setLayoutManager(linearLayoutManager);
-        if (rcvBook == null) {
-            Toast.makeText(context, "RecyclerView not found", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
 }

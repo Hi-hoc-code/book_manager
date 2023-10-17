@@ -27,7 +27,7 @@ public class BookDAO {
             String name = cursor.getString(1);
             String author = cursor.getString(2);
             String loai = cursor.getString(3);
-            int imgRes = cursor.getInt(4);
+            String imgRes = cursor.getString(4);
             bookList.add(new Book(id,name, author, loai, imgRes));
             cursor.moveToNext();
         }
@@ -45,39 +45,37 @@ public class BookDAO {
             String name = cursor.getString(1);
             String author = cursor.getString(2);
             String loai = cursor.getString(3);
-            int imgRes = cursor.getInt(4);
+            String imgRes = cursor.getString(4);
             bookList.add(new Book(id, name, author, loai, imgRes));
+            cursor.moveToNext();
         }
-        cursor.close();
         db.close();
         return bookList;
     }
 
-
-    public boolean insert(Book book){
+    public boolean insert(Book item) {
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("name",book.getName());
-        values.put("author",book.getAuthor());
-        values.put("loai",book.getLoai());
-        values.put("hinh",book.getImage());
-        long check = db.insert("SACH",null,values);
-        return check!=-1;
+        values.put("ten_sach", item.getName());
+        values.put("tac_gia", item.getAuthor());
+        values.put("loai", item.getLoai());
+        values.put("hinh", item.getImage());
+        long row = db.insert("sach",null,values);
+        return row != -1;
     }
     public boolean update(Book item ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("name",item.getName());
-        values.put("author",item.getAuthor());
+        values.put("ten_sach",item.getName());
+        values.put("tac_gia",item.getAuthor());
         values.put("loai",item.getLoai());
         values.put("hinh",item.getImage());
         int row = db.update("SACH",values,"ma_sach=?",new String[]{String.valueOf(item.getId())});
         return row>0;
     }
-    public boolean update(Integer index ){
+    public boolean delete(Integer index ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        int row = db.update("SACH",values,"ma_sach  =?",new String[]{String.valueOf(index)});
+        int row = db.delete("SACH","ma_sach  =?",new String[]{String.valueOf(index)});
         return row>0;
     }
 }

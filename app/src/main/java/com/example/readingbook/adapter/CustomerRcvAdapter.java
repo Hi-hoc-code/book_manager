@@ -53,22 +53,21 @@
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHoler holder, int position) {
-            Integer index = holder.getAdapterPosition();
+
             holder.imgKhachHang.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // Mở sự kiện chọn ảnh mới
                     pickImageLauncher.launch("image/*");
                 }
             });
 
             //get
-            byte[] decodedString = Base64.decode(list.get(position).getImage(), Base64.DEFAULT);
+            byte[] decodedString = Base64.decode(list.get(holder.getAdapterPosition()).getImage(), Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             holder.imgKhachHang.setImageBitmap(decodedByte);
-            holder.tvTenKhachHang.setText(list.get(position).getTen());
-            holder.tvSdtKhachHang.setText(list.get(position).getSdt());
-            holder.tvIdKhachHang.setText("KH0" + String.valueOf(list.get(position).getId()));
+            holder.tvTenKhachHang.setText(list.get(holder.getAdapterPosition()).getTen());
+            holder.tvSdtKhachHang.setText(list.get(holder.getAdapterPosition()).getSdt());
+            holder.tvIdKhachHang.setText("KH0" + String.valueOf(list.get(holder.getAdapterPosition()).getId()));
             CustomerDAO customerDAO = new CustomerDAO(context);
 
             holder.btnEditKhachHang.setOnClickListener(new View.OnClickListener() {
@@ -91,15 +90,15 @@
                     btnSubmit = dialog.findViewById(R.id.btnSubmitKhachHang);
                     btnCancel = dialog.findViewById(R.id.btnHuyDigKhachHang);
 
-                    edtTenKhachHang.setText(list.get(index).getTen());
-                    edtSdtKhachHang.setText(list.get(index).getSdt());
-                    edtEmailKhachHang.setText(list.get(index).getEmail());
-                    edtPassKhachHang.setText(list.get(index).getPassword());
+                    edtTenKhachHang.setText(list.get(holder.getAdapterPosition()).getTen());
+                    edtSdtKhachHang.setText(list.get(holder.getAdapterPosition()).getSdt());
+                    edtEmailKhachHang.setText(list.get(holder.getAdapterPosition()).getEmail());
+                    edtPassKhachHang.setText(list.get(holder.getAdapterPosition()).getPassword());
 
                     imgAvatarKhachHang.setOnClickListener(v -> {
                         pickImageLauncher.launch("image/*");
                     });
-                    byte[] decodedString = Base64.decode(list.get(position).getImage(), Base64.DEFAULT);
+                    byte[] decodedString = Base64.decode(list.get(holder.getAdapterPosition()).getImage(), Base64.DEFAULT);
                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                     imgAvatarKhachHang.setImageBitmap(decodedByte);
 
@@ -117,10 +116,10 @@
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
                             String avatar = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
-                            Customer updatedCustomer = new Customer(list.get(index).getId(), ten, sdt, email, pass, avatar);
+                            Customer updatedCustomer = new Customer(list.get(holder.getAdapterPosition()).getId(), ten, sdt, email, pass, avatar);
                             if (customerDAO.update(updatedCustomer)) {
                                 Toast.makeText(context, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-                                list.set(index, updatedCustomer); // Update the item in the list
+                                list.set(holder.getAdapterPosition(), updatedCustomer); // Update the item in the list
                                 notifyDataSetChanged();
                                 dialog.dismiss();
                             } else {
@@ -154,7 +153,7 @@
                     builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            if (customerDAO.delete(index)) {
+                            if (customerDAO.delete(holder.getAdapterPosition())) {
                                 Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
                                 list.clear();
                                 list.addAll(customerDAO.getAll());

@@ -5,9 +5,9 @@ public class Book {
     private String name;
     private String author;
     private String loai;
-    private Integer image;
+    private String image;
 
-    public Book(Integer id, String name, String author, String loai, Integer image) {
+    public Book(Integer id, String name, String author, String loai, String image) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -15,7 +15,7 @@ public class Book {
         this.image = image;
     }
 
-    public Book(String name, String author, String loai, Integer image) {
+    public Book(String name, String author, String loai, String image) {
         this.name = name;
         this.author = author;
         this.loai = loai;
@@ -54,11 +54,11 @@ public class Book {
         this.loai = loai;
     }
 
-    public Integer getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Integer image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
