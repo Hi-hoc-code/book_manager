@@ -1,65 +1,76 @@
 package com.example.readingbook.model;
 
 public class Staff {
-    private Integer maNhanVien;
-    private String hoTen;
-    private String tenDangNhap;
-    private String matKhau;
-    private String img;
+    private Integer id ;
+    private String ten;
+    private String sdt;
+    private String email;
+    private String password;
+    private String image;
 
-    public Staff(Integer maNhanVien, String hoTen, String tenDangNhap, String matKhau, String img) {
-        this.maNhanVien = maNhanVien;
-        this.hoTen = hoTen;
-        this.tenDangNhap = tenDangNhap;
-        this.matKhau = matKhau;
-        this.img = img;
+    public Staff(Integer id, String ten, String sdt, String email, String password, String image) {
+        this.id = id;
+        this.ten = ten;
+        this.sdt = sdt;
+        this.email = email;
+        this.password = password;
+        this.image = image;
     }
 
-    public Staff(String hoTen, String tenDangNhap, String matKhau, String img) {
-        this.hoTen = hoTen;
-        this.tenDangNhap = tenDangNhap;
-        this.matKhau = matKhau;
-        this.img = img;
+    public Staff(String ten, String sdt, String email, String password, String image) {
+        this.ten = ten;
+        this.sdt = sdt;
+        this.email = email;
+        this.password = password;
+        this.image = image;
     }
 
-    public String getTenDangNhap() {
-        return tenDangNhap;
+    public Integer getId() {
+        return id;
     }
 
-    public void setTenDangNhap(String tenDangNhap) {
-        this.tenDangNhap = tenDangNhap;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getMaNhanVien() {
-        return maNhanVien;
+    public String getTen() {
+        return ten;
     }
 
-    public void setMaNhanVien(Integer maNhanVien) {
-        this.maNhanVien = maNhanVien;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
-    public String getHoTen() {
-        return hoTen;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
-    public String getMatKhau() {
-        return matKhau;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getImg() {
-        return img;
+    public String getPassword() {
+        return password;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
 

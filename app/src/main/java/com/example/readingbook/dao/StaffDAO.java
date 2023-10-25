@@ -35,10 +35,11 @@ public class StaffDAO {
         while (!cursor.isAfterLast()){
             Integer maNhanVien = cursor.getInt(0);
             String tenNhanVien = cursor.getString(1);
-            String tenDangNhap = cursor.getString(2);
-            String matKhau = cursor.getString(3);
-            String img = cursor.getString(4);
-            list.add(new Staff(maNhanVien,tenNhanVien,tenDangNhap,matKhau,img));
+            String sdt = cursor.getString(2);
+            String email = cursor.getString(3);
+            String matKhau = cursor.getString(4);
+            String img = cursor.getString(5);
+            list.add(new Staff(maNhanVien, tenNhanVien,sdt, email, matKhau, img));
             cursor.moveToNext();
         }
         db.close();
@@ -47,19 +48,20 @@ public class StaffDAO {
     public boolean insert(Staff item ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ten",item.getHoTen());
-        values.put("ten_dang_nhap",item.getTenDangNhap());
-        values.put("mat_khau", item.getMatKhau());
-        values.put("avatar",item.getImg());
+        values.put("ten_thu_thu",item.getTen());
+        values.put("sdt",item.getSdt());
+        values.put("email",item.getEmail());
+        values.put("password",item.getPassword());
+        values.put("image",item.getImage());
         long row = db.insert("THUTHU",null,values);
         return row!=1;
     }
     public boolean update(Staff item){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-        int row = db.update("THUTHU",null,"ma_thu_thu=?",new String[]{String.valueOf(item.getMaNhanVien())});
+        int row = db.update("THUTHU",null,"ma_thu_thu=?",new String[]{String.valueOf(item.getId())});
         return row>0;
     }
-    public boolean update(Integer index){
+    public boolean delete(Integer index){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         int row = db.delete("THUTHU","ma_thu_thu=?",new String[]{String.valueOf(index)});
         return row>0;

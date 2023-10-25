@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="8dp"
     android:background="#FFF"
     android:orientation="vertical">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quản lí khách hàng"
+        android:textColor="#333"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="center"/>
     <EditText
         android:id="@+id/edtSearchKhachHang"
         android:layout_width="match_parent"
@@ -14,27 +21,21 @@
         android:background="@drawable/border_edt"
         android:drawableEnd="@drawable/search"
         android:hint="Tìm kiếm khách hàng..."
-        android:paddingHorizontal="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
-
+        android:paddingHorizontal="18dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvcLisstKhachHang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/edtSearchKhachHang"
-        android:layout_marginStart="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddKhachHang"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rvcLisstKhachHang"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="-100dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/add" />
-</RelativeLayout>
+        android:src="@drawable/add"
+        android:layout_gravity="end"/>
+</LinearLayout>
