@@ -58,12 +58,18 @@ public class StaffDAO {
     }
     public boolean update(Staff item){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-        int row = db.update("THUTHU",null,"ma_thu_thu=?",new String[]{String.valueOf(item.getId())});
+        ContentValues values = new ContentValues();
+        values.put("ten_thu_thu",item.getTen());
+        values.put("sdt",item.getSdt());
+        values.put("email",item.getEmail());
+        values.put("password",item.getPassword());
+        values.put("image",item.getImage());
+        int row = db.update("THUTHU",values,"ma_thu_thu=?",new String[]{String.valueOf(item.getId())});
         return row>0;
     }
     public boolean delete(Integer index){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
-        int row = db.delete("THUTHU","ma_thu_thu=?",new String[]{String.valueOf(index)});
+        long row = db.delete("THUTHU","ma_thu_thu=? ",new String[]{String.valueOf(index)});
         return row>0;
     }
 }

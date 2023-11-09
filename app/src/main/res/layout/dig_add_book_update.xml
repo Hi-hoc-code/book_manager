@@ -7,37 +7,30 @@
     android:padding="16dp"
     android:background="@drawable/border_dialog">
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgAvatarNhanVienDig"
-        app:shapeAppearanceOverlay="@style/circular"
+        android:id="@+id/imgBookDig"
+        app:shapeAppearanceOverlay="@style/loai_sach"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ava"
         android:layout_gravity="center"/>
     <EditText
-        android:id="@+id/edtTenNhanVienDig"
+        android:id="@+id/edtTenBookDig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên nhân viên"
+        android:hint="Tên sách"
         android:layout_marginTop="8dp"/>
     <EditText
-        android:id="@+id/edtSdtNhanVienDig"
+        android:id="@+id/edtTacGiaDig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Số điện thoại"
+        android:hint="Tên tác giả"
         android:layout_marginTop="8dp"/>
     <EditText
-        android:id="@+id/edtEmailNhanVienDig"
+        android:id="@+id/edtLoaiSachDiaUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Loại sách"
         android:layout_marginTop="8dp"/>
-    <EditText
-        android:id="@+id/edtPassNhanVienDig"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_marginTop="8dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +41,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/btnSubmitNhanVienDig"
+            android:id="@+id/btnSubmitBookDig"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="Xác nhận"
@@ -60,7 +53,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/btnCancelNhanVienDig"
+            android:id="@+id/btnCancelBookDig"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="Hủy"

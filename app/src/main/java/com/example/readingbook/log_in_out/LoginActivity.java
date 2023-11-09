@@ -41,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = edtEmail.getText().toString().trim();
                 String pass = edtPassword.getText().toString().trim();
-                if(TextUtils.isEmpty(email)||TextUtils.isEmpty(pass)){
-                    Toast.makeText(getApplicationContext(),"Fill in all fiels",Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)) {
+                    Toast.makeText(getApplicationContext(), "Fill in all fiels", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 mAuth.signInWithEmailAndPassword(email, pass)
@@ -77,9 +77,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void addControls() {
-        edtEmail= findViewById(R.id.edtEmailLogin);
-        edtPassword= findViewById(R.id.edtPassLoginScreen);
-        btnLogin= findViewById(R.id.btnLoginScreen);
+        edtEmail = findViewById(R.id.edtEmailLogin);
+        edtPassword = findViewById(R.id.edtPassLoginScreen);
+        btnLogin = findViewById(R.id.btnLoginScreen);
         mAuth = FirebaseAuth.getInstance();
         btndontneedlogin = findViewById(R.id.btndontneedlogin);
     }

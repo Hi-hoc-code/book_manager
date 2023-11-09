@@ -32,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
     FirebaseAuth mAth;
     FirebaseFirestore dataBase;
     TextView btnToLoginFromSignUp;
+
     @Override
     public void onStart() {
         super.onStart();
@@ -43,6 +44,7 @@ public class SignupActivity extends AppCompatActivity {
 //            finish();
 //        }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,18 +90,18 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                                     // Add thông tin vào firebase
 
-                                    String id= UUID.randomUUID().toString();
-                                    Admin user = new Admin(id, username,email,pass);
-                                    HashMap<String,Object> mapUser = user.convertHashMap();
+                                    String id = UUID.randomUUID().toString();
+                                    Admin user = new Admin(id, username, email, pass);
+                                    HashMap<String, Object> mapUser = user.convertHashMap();
                                     dataBase.collection("user").document(id).set(mapUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 

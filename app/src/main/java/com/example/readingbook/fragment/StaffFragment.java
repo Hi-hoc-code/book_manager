@@ -80,19 +80,18 @@ public class StaffFragment extends Fragment {
         dialog.setContentView(R.layout.dialog_add_nhan_vien);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         EditText edtTenNhanVien, edtSdtNhanVien, edtEmailNhanVien, edtPassNhanVien;
+        edtTenNhanVien = dialog.findViewById(R.id.edtTenNhanVienDig);
+        edtSdtNhanVien = dialog.findViewById(R.id.edtSdtNhanVienDig);
+        edtEmailNhanVien = dialog.findViewById(R.id.edtEmailNhanVienDig);
+        edtPassNhanVien = dialog.findViewById(R.id.edtPassNhanVienDig);
 
-        edtTenNhanVien = dialog.findViewById(R.id.edtTenNhanVien);
-        edtSdtNhanVien = dialog.findViewById(R.id.edtSdtNhanVien);
-        edtEmailNhanVien = dialog.findViewById(R.id.edtEmailNhanVien);
-        edtPassNhanVien = dialog.findViewById(R.id.edtPassNhanVien);
-        imgAvatarNhanVien = dialog.findViewById(R.id.imgAvatarNhanVien);
-
+        imgAvatarNhanVien = dialog.findViewById(R.id.imgAvatarNhanVienDig);
         imgAvatarNhanVien.setOnClickListener(v -> {
             pickImageLauncher.launch("image/*");
         });
 
-        Button btnSubmitNhanVien = dialog.findViewById(R.id.btnSubmitNhanVien);
-        Button btnHuyDiaNhanVien = dialog.findViewById(R.id.btnHuyDigNhanVien);
+        Button btnSubmitNhanVien = dialog.findViewById(R.id.btnSubmitNhanVienDig);
+        Button btnHuyDiaNhanVien = dialog.findViewById(R.id.btnCancelNhanVienDig);
 
         btnSubmitNhanVien.setOnClickListener(v -> {
             String ten = edtTenNhanVien.getText().toString();

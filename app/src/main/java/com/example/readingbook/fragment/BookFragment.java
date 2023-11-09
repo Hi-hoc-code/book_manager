@@ -52,10 +52,7 @@ public class BookFragment extends Fragment {
         addControls(view);
         return view;
     }
-
-
     private void addControls(View view) {
-
         btnAddBookManager = view.findViewById(R.id.btnAddBookManager);
         rcvBookManager = view.findViewById(R.id.rcvBookManager);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -71,10 +68,10 @@ public class BookFragment extends Fragment {
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dig_add_book);
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
                 EditText edtBook, edtAuthor;
                 Button btnSubmitDigBook, btnCancleDigBook;
                 Spinner spKindBook;
+
                 List listKind = new ArrayList<>();
                 listKind.add("Truyện tranh");
                 listKind.add("Đời sống");
@@ -91,10 +88,9 @@ public class BookFragment extends Fragment {
                 spKindBook.setAdapter(listKindBook);
 
                 imgKindBook = dialog.findViewById(R.id.imgBookDig);
-//                imgKindBook.setOnClickListener(v -> {
-//                    pickImageLauncher.launch("image/*");
-//                });
-
+                imgKindBook.setOnClickListener(v -> {
+                    pickImageLauncher.launch("image/*");
+                });
                 spKindBook.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -150,7 +146,6 @@ public class BookFragment extends Fragment {
                 dialog.show();
             }
         });
-
     }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

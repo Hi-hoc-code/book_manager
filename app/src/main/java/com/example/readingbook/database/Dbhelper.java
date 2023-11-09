@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 
 public class Dbhelper extends SQLiteOpenHelper {
     public Dbhelper( Context context) {
-        super(context, "BM", null, 2);
+        super(context, "BM", null, 3);
     }
 
     @Override
@@ -33,6 +33,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "ma_loai integer," +
                 "foreign key (ma_loai) references LOAISACH(ma_loai))";
         db.execSQL(sach);
+
         String phieu_muon = "CREATE TABLE PHIEUMUON(ma_phieu_muon integer primary key autoincrement," +
                 "ma_thanh_vien_pm integer," +
                 "ma_sach_pm integer," +
@@ -45,6 +46,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "foreign key(ma_sach_pm) references SACH(ma_sach)," +
                 "foreign key(ma_thu_thu_pm) references THUTHU(ma_thu_thu))";
         db.execSQL(phieu_muon);
+
         String thu_thu = "CREATE TABLE THUTHU(ma_thu_thu integer primary key autoincrement," +
                 "ten_thu_thu text," +
                 "sdt text," +
@@ -52,6 +54,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "password text," +
                 "image text)";
         db.execSQL(thu_thu);
+
         String khach_hang = "CREATE TABLE KHACHHANG(" +
                 "ma_khach_hang integer primary key autoincrement," +
                 "ten_khach_hang text," +

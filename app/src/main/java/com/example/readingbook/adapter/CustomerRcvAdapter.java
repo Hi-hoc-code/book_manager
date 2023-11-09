@@ -159,6 +159,8 @@
                                 list.addAll(customerDAO.getAll());
                                 notifyDataSetChanged();
                                 dialogInterface.dismiss();
+                            }else {
+                                Toast.makeText(context, "Xóa ko thành công", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

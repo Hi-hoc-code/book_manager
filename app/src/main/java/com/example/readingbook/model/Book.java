@@ -15,6 +15,12 @@ public class Book {
         this.image = image;
     }
 
+    public Book(String name, String author, String loai) {
+        this.name = name;
+        this.author = author;
+        this.loai = loai;
+    }
+
     public Book(String name, String author, String loai, String image) {
         this.name = name;
         this.author = author;

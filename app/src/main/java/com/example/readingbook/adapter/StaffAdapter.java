@@ -71,31 +71,32 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.MyViewHoler>
         holder.tvSdtNhanVien.setText(list.get(holder.getAdapterPosition()).getSdt());
         holder.tvIdNhanVien.setText("KH0" + String.valueOf(list.get(holder.getAdapterPosition()).getId()));
         StaffDAO staffDAO = new StaffDAO(context);
-
+        Integer index = holder.getAdapterPosition();
+        Integer id = list.get(index).getId();
         holder.btnEditNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.layout_item_staff);
+                dialog.setContentView(R.layout.dialog_add_nhan_vien);
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
                 EditText edtTenNhanVien, edtSdtNhanVien, edtEmailNhanVien, edtPassNhanVien;
                 Button btnSubmit, btnCancel;
                 ShapeableImageView imgAvatarNhanVien;
 
-                edtTenNhanVien = dialog.findViewById(R.id.edtTenNhanVien);
-                edtSdtNhanVien = dialog.findViewById(R.id.edtSdtNhanVien);
-                edtEmailNhanVien = dialog.findViewById(R.id.edtEmailNhanVien);
-                edtPassNhanVien = dialog.findViewById(R.id.edtPassNhanVien);
-                imgAvatarNhanVien = dialog.findViewById(R.id.imgAvatarNhanVien);
+                edtTenNhanVien = dialog.findViewById(R.id.edtTenNhanVienDig);
+                edtSdtNhanVien = dialog.findViewById(R.id.edtSdtNhanVienDig);
+                edtEmailNhanVien = dialog.findViewById(R.id.edtEmailNhanVienDig);
+                edtPassNhanVien = dialog.findViewById(R.id.edtPassNhanVienDig);
+                imgAvatarNhanVien = dialog.findViewById(R.id.imgAvatarNhanVienDig);
 
-                btnSubmit = dialog.findViewById(R.id.btnSubmitKhachHang);
-                btnCancel = dialog.findViewById(R.id.btnHuyDigKhachHang);
+                btnSubmit = dialog.findViewById(R.id.btnSubmitNhanVienDig);
+                btnCancel = dialog.findViewById(R.id.btnCancelNhanVienDig);
 
-                edtTenNhanVien.setText(list.get(holder.getAdapterPosition()).getTen());
-                edtSdtNhanVien.setText(list.get(holder.getAdapterPosition()).getSdt());
-                edtEmailNhanVien.setText(list.get(holder.getAdapterPosition()).getEmail());
-                edtPassNhanVien.setText(list.get(holder.getAdapterPosition()).getPassword());
+                edtTenNhanVien.setText(list.get(index).getTen());
+                edtSdtNhanVien.setText(list.get(index).getSdt());
+                edtEmailNhanVien.setText(list.get(index).getEmail());
+                edtPassNhanVien.setText(list.get(index).getPassword());
 
                 imgAvatarNhanVien.setOnClickListener(v -> {
                     pickImageLauncher.launch("image/*");
@@ -111,17 +112,18 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.MyViewHoler>
                         String sdt = edtSdtNhanVien.getText().toString();
                         String email = edtEmailNhanVien.getText().toString();
                         String pass = edtPassNhanVien.getText().toString();
+
                         Drawable drawable = imgAvatarNhanVien.getDrawable();
                         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
                         String avatar = Base64.encodeToString(byteArray, Base64.DEFAULT);
-
-                        Staff staff = new Staff(list.get(holder.getAdapterPosition()).getId(), ten, sdt, email, pass, avatar);
+                        Staff staff = new Staff(id, ten, sdt, email, pass, avatar);
                         if (staffDAO.update(staff)) {
                             Toast.makeText(context, "Cập nhật thông tin thành công", Toast.LENGTH_SHORT).show();
-                            list.set(holder.getAdapterPosition(), staff); // Update the item in the list
+                            list.clear();
+                            list.addAll(staffDAO.getAll());
                             notifyDataSetChanged();
                             dialog.dismiss();
                         } else {
@@ -152,15 +154,19 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.MyViewHoler>
                         dialogInterface.dismiss();
                     }
                 });
+
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (staffDAO.delete(holder.getAdapterPosition())) {
+                        boolean del = staffDAO.delete(id);
+                        if (del) {
                             Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
                             list.clear();
                             list.addAll(staffDAO.getAll());
                             notifyDataSetChanged();
                             dialogInterface.dismiss();
+                        }else {
+                            Toast.makeText(context, "Xóa không thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -63,16 +63,17 @@ public class BookDAO {
         long row = db.insert("sach",null,values);
         return row != -1;
     }
-    public boolean update(Book item ){
+    public boolean update(Book item) {
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ten_sach",item.getName());
-        values.put("tac_gia",item.getAuthor());
-        values.put("loai",item.getLoai());
-        values.put("hinh",item.getImage());
-        int row = db.update("SACH",values,"ma_sach=?",new String[]{String.valueOf(item.getId())});
-        return row>0;
+        values.put("ten_sach", item.getName());
+        values.put("tac_gia", item.getAuthor());
+        values.put("loai", item.getLoai());
+        values.put("hinh", item.getImage());
+        int row = db.update("SACH", values, "ma_sach=?", new String[]{String.valueOf(item.getId())});
+        return row > 0;
     }
+
     public boolean delete(Integer index ){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         int row = db.delete("SACH","ma_sach  =?",new String[]{String.valueOf(index)});
